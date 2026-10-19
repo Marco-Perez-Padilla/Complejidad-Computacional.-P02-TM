@@ -1,0 +1,12 @@
+# The blank symbol '.' was also declared as part of Sigma, which is not
+# allowed (the blank cannot be part of the input alphabet). Caught by
+# TuringMachine::Validate, reported as line 0 since it is a
+# cross-field check rather than something tied to a single line.
+q0 q1
+0 .
+0 1 .
+q0
+.
+q1
+1
+q0 0 q1 0 R

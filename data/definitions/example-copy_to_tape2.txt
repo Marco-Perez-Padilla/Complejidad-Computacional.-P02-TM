@@ -1,0 +1,22 @@
+# Example 2-tape Turing machine, included to demonstrate multi-tape
+# support (k is read from the configuration file, see the number-of-
+# tapes line below): copies the binary string on tape 1 onto tape 2,
+# symbol by symbol, then rewinds both heads back to the start of the
+# copied region. Tape 1 is left untouched, exactly as it started; the
+# result the exercise cares about (tape 1) is unchanged, but it is a
+# convenient, easy-to-follow way to check that reading, writing and
+# moving are applied correctly and independently on every tape of a
+# machine with k > 1.
+q0 q1 q2
+0 1
+0 1 .
+q0
+.
+q2
+2
+q0 0 . q0 0 0 R R
+q0 1 . q0 1 1 R R
+q0 . . q1 . . L L
+q1 0 0 q1 0 0 L L
+q1 1 1 q1 1 1 L L
+q1 . . q2 . . R R

@@ -1,0 +1,17 @@
+# The transition delta(q0, 0) = (q1, 0, R) is listed twice, identically.
+# This is a harmless duplicate (not a conflict: both lines fully agree),
+# so it does not stop parsing; the second occurrence is skipped with a
+# "Warning: ... duplicate transition ignored" on stderr and the machine
+# is built normally from the rest of the file.
+q0 q1
+0 1
+0 1 .
+q0
+.
+q1
+1
+q0 0 q1 0 R
+q0 0 q1 0 R
+q0 1 q1 1 R
+q1 0 q1 0 R
+q1 1 q1 1 R

@@ -1,0 +1,10 @@
+# The blank symbol 'x' was never declared in Gamma, so building the
+# machine throws InvalidDefinitionException.
+q0 q1
+0 1
+0 1 .
+q0
+x
+q1
+1
+q0 0 q1 0 R

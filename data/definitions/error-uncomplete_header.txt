@@ -1,0 +1,7 @@
+# Only 4 meaningful lines: Q, Sigma, Gamma, initial state. Missing the
+# blank symbol, F and the number of tapes, so parsing fails with
+# InvalidDefinitionException ("must include Q, Sigma, Gamma, ...").
+q0 q1
+0 1
+0 1 .
+q0

@@ -1,0 +1,14 @@
+# q0 has two different transitions for the same (state, read) pair
+# delta(q0, 0): one goes to q1 writing 0 and moving R, the other goes to
+# q1 writing 1 and moving R. They disagree (different write), so this
+# is a genuine non-determinism conflict, not a harmless duplicate;
+# parsing throws InvalidDefinitionException.
+q0 q1
+0 1
+0 1 .
+q0
+.
+q1
+1
+q0 0 q1 0 R
+q0 0 q1 1 R

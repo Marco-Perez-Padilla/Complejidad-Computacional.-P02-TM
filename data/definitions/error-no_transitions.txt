@@ -1,0 +1,10 @@
+# The header is complete (Q, Sigma, Gamma, initial state, blank, F,
+# number of tapes) but no transition line follows, so parsing throws
+# InvalidDefinitionException ("the definition has no transitions").
+q0 q1
+0 1
+0 1 .
+q0
+.
+q1
+1

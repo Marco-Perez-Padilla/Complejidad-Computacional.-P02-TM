@@ -1,0 +1,13 @@
+{
+    "name": "C++ Development",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "cpp-dev",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools"
+            ]
+        }
+    }
+}

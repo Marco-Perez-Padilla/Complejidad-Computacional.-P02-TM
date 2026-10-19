@@ -1,0 +1,10 @@
+# The initial state 'qZ' is not a member of Q, so building the machine
+# throws InvalidDefinitionException.
+q0 q1
+0 1
+0 1 .
+qZ
+.
+q1
+1
+q0 0 q1 0 R

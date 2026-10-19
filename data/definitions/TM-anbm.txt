@@ -1,0 +1,31 @@
+# Turing machine recognizing L = {a^n b^m | m >= n, n > 0}
+#
+# Two tapes. Tape 1 holds the input word. Tape 2 is a scratch tape used as
+# a counter: one 'X' is written for every 'a' read on tape 1. Then, while
+# reading the 'b's, one 'X' is erased for every 'b'. Extra 'b's are allowed
+# (m can be greater than n). At the end, the word is accepted only if no
+# 'X' remains, i.e. m >= n. Since q0 only has a transition on 'a', a word
+# starting with 'b' or with the blank halts immediately in q0 and is rejected,
+# which enforces n > 0. If an 'a' appears after the 'b's, q2 has no transition
+# for it, so the machine halts in a non-final state and rejects.
+# If the input ends while an 'X' is still on tape 2 (m < n), q2 has no
+# transition for ('.', 'X') and the machine halts rejecting.
+#
+# Format per transition (2 tapes):
+#   origen  lee1 lee2  destino  escr1 escr2  mov1 mov2
+# Moves: L, R, S (stay). Blank is ".".
+q0 q1 q2 q3 q4
+a b
+a b X .
+q0
+.
+q4
+2
+q0 a . q1 a X R R
+q1 a . q1 a X R R
+q1 b . q2 b . S L
+q2 b X q2 b . R L
+q2 b . q3 b . R S
+q2 . . q4 . . S S
+q3 b . q3 b . R S
+q3 . . q4 . . S S

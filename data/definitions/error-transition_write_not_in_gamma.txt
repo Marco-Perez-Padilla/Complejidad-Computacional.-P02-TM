@@ -1,0 +1,10 @@
+# The transition writes '2', which was never declared in Gamma, so
+# parsing throws InvalidDefinitionException.
+q0 q1
+0 1
+0 1 .
+q0
+.
+q1
+1
+q0 0 q1 2 R

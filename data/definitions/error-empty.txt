@@ -1,0 +1,2 @@
+# This file has no meaningful content (only comments), so parsing it
+# throws EmptyFileException.

@@ -1,0 +1,10 @@
+# The transition's destination state 'qZ' was never declared in Q, so
+# parsing throws InvalidDefinitionException.
+q0 q1
+0 1
+0 1 .
+q0
+.
+q1
+1
+q0 0 qZ 0 R

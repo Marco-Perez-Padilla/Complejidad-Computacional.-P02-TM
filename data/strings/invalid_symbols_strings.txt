@@ -1,0 +1,4 @@
+aabb
+aXb
+ab
+c

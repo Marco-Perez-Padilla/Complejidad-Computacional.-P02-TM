@@ -1,0 +1,24 @@
+# Example Turing machine
+# n is represented in unary as 1^n; the machine computes 2n.
+# Note: it writes to the left of where the input started, which is why
+# the tape needs to be infinite in both directions, not just to the
+# right.
+q0 q1 q2 q3 q4 q5
+1
+. 1 a
+q0
+.
+q5
+1
+q0 1 q1 a L
+q1 1 q1 1 L
+q1 a q1 a L
+q1 . q2 1 R
+q2 1 q2 1 R
+q2 a q3 a R
+q3 a q3 a R
+q3 1 q1 a L
+q3 . q4 . L
+q4 a q4 1 L
+q4 1 q4 1 L
+q4 . q5 . R

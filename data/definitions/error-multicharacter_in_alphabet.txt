@@ -1,0 +1,10 @@
+# 'ab' is not a single character, so it cannot belong to Sigma; parsing
+# throws InvalidDefinitionException.
+q0 q1
+ab 1
+0 1 .
+q0
+.
+q1
+1
+q0 0 q1 0 R
