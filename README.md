@@ -76,10 +76,10 @@ cadena se acepta si la máquina se detiene en un estado de `F`.
 
 Ficheros de configuración:
 
-| Problema | Fichero de configuración | Imagen del grafo | Cadenas de prueba |
+| Problema | Fichero de configuración | Cadenas de prueba |
 |---|---|---|---|
-| 1. `L = { aⁿbᵐ \| m ≥ n, n > 0 }` | `data/definitions/TM-anbm.txt` | `docs/graphs/TM-anbm.png` | `data/strings/TM-anbm_strings.txt` |
-| 2. Sustituir la cadena por nº de `b` y nº de `a` en unario | `data/definitions/TM-count_symbols.txt` | `docs/graphs/TM-count_symbols.png` | `data/strings/TM-count_symbols_strings.txt` |
+| 1. `L = { aⁿbᵐ \| m ≥ n, n > 0 }` | `data/definitions/TM-anbm.txt` | `data/strings/TM-anbm_strings.txt` |
+| 2. Sustituir la cadena por nº de `b` y nº de `a` en unario | `data/definitions/TM-count_symbols.txt` | `data/strings/TM-count_symbols_strings.txt` |
 
 Además se incluyen los dos ejemplos dados con la práctica
 (`example-odd_zeros.txt`, `example-double_unary.txt`) y un ejemplo de
@@ -110,8 +110,6 @@ bb         ->  [1]1·0
 ├── src/                # implementación (.cc), misma organización que include/
 ├── tests/              # tests de GoogleTest, un fichero por cada .h/.cc de arriba
 ├── libs/googletest/     # código fuente de GoogleTest
-├── scripts/            # make_graph.py: dibuja el grafo de una MT con Graphviz
-├── docs/graphs/         # imágenes de los grafos de las MT diseñadas
 └── data/
     ├── definitions/      # ficheros de definición (para -config): válidos, de error y de aviso
     └── strings/          # ficheros de cadenas de entrada (para -in)
