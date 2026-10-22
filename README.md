@@ -77,7 +77,7 @@ cadena se acepta si la máquina se detiene en un estado de `F`.
 Ficheros de configuración:
 
 | Problema | Fichero de configuración | Cadenas de prueba |
-|---|---|---|---|
+|---|---|---|
 | 1. `L = { aⁿbᵐ \| m ≥ n, n > 0 }` | `data/definitions/TM-anbm.txt` | `data/strings/TM-anbm_strings.txt` |
 | 2. Sustituir la cadena por nº de `b` y nº de `a` en unario | `data/definitions/TM-count_symbols.txt` | `data/strings/TM-count_symbols_strings.txt` |
 
@@ -87,6 +87,10 @@ Además se incluyen los dos ejemplos dados con la práctica
 
 **Máquina 1.** Usa 2 cintas: la cinta 1 lleva la entrada y la cinta 2 actúa como contador. Por cada `a` leída en la cinta 1 se escribe una `X` en la cinta 2; al encontrar la primera `b`, cada `b` consumida borra una `X`. Las `b` que sobran (cuando ya no quedan `X`) se saltan, porque `m` puede ser mayor que `n`. Al terminar la entrada se acepta si no queda ninguna `X`, es decir, si `m ≥ n`. Como `q0` solo tiene transición con `a`, una cadena que empiece por `b` (o vacía) se rechaza, lo que impone `n > 0`. Una `a` después de las `b` (como en `aba`) no tiene transición y la máquina se detiene en un estado no final.
 
+Grafo de la máquina (`docs/graphs/TM-anbm.png`):
+
+![Grafo de la Máquina 1: L = { aⁿbᵐ | m ≥ n, n > 0 }](docs/graphs/TM-anbm.png)
+
 **Máquina 2.** Usa 3 cintas: la cinta 1 lleva la entrada (y acaba conteniendo el resultado), la cinta 2 cuenta las `b` y la cinta 3 cuenta las `a`, cada cuenta como un bloque de `1`s. En una sola pasada sobre la entrada, cada símbolo se borra (se marca como `X`) y se añade un `1` a la cinta de conteo correspondiente; la cabeza de esa cinta se mueve hacia la izquierda, así que al terminar queda sobre el blanco justo a la izquierda del bloque y un paso a la derecha basta para empezar a leerlo, sin tener que rebobinar. Luego se rebobina la cinta 1 hasta el inicio (usando el blanco a la izquierda de la entrada como centinela), se escribe el conteo de `b` de la cinta 2 (o un `0` si está vacío), un blanco separador, y el conteo de `a` de la cinta 3 (o un 0 si está vacío). Finalmente se retrocede por la cinta 1 hasta el primer carácter del resultado: como el separador también es un blanco, solo se trata como centinela izquierdo si la celda anterior también es blanca.
 
 ```
@@ -94,6 +98,10 @@ abbabaabb  ->  [1]1111·1111      (5 b's, 4 a's; · es el símbolo blanco)
 aa         ->  [0]·11
 bb         ->  [1]1·0
 ```
+
+Grafo de la máquina (`docs/graphs/TM-count_symbols.png`):
+
+![Grafo de la Máquina 2: sustitución de la cadena por conteos en unario](docs/graphs/TM-count_symbols.png)
 
 ## Estructura del proyecto
 
@@ -110,6 +118,8 @@ bb         ->  [1]1·0
 ├── src/                # implementación (.cc), misma organización que include/
 ├── tests/              # tests de GoogleTest, un fichero por cada .h/.cc de arriba
 ├── libs/googletest/     # código fuente de GoogleTest
+├── docs/
+│   └── graphs/          # grafos de las máquinas (TM-anbm.png, TM-count_symbols.png)
 └── data/
     ├── definitions/      # ficheros de definición (para -config): válidos, de error y de aviso
     └── strings/          # ficheros de cadenas de entrada (para -in)

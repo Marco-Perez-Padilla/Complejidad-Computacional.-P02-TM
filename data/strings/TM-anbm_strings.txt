@@ -1,10 +1,5 @@
-a
-ab
+bb
+aa
 aab
-aabb
-aaabbb
-aabbb
-aaa
-aab
-b
-.
+abb
+abba

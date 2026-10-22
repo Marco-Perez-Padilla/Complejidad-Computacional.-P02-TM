@@ -1,7 +1,3 @@
-abbabaabb
-aa
+abbab
 bb
-ab
-a
-b
-babababa
+aa
